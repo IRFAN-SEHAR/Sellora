@@ -14,6 +14,7 @@ function App() {
 
   return (
     <>
+    <Header/>
       <Admin_Dash/>
       <Home/>
       <Cart/>
@@ -21,7 +22,6 @@ function App() {
       <Contact/>
       <Products/>
       <Profile/>
-      <Header/>
       <Footer/>
 
     </>
