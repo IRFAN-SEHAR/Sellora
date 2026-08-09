@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.products{
+    background-color: rgba(113, 143, 110, 9.1);
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2%;
+}
+.card{
+    width: 250px;
+    height: 350px;
+    border: 1px solid black;
+     grid-template-rows: 1fr 1fr 1fr 1fr;
+    /* padding: 2%;
+    margin: 2%; */
+    
+}
+.products .card img{
+    width: 250px;
+    height: 250px;
+}
