@@ -15,6 +15,7 @@ function App() {
   return (
     <>
     <Header/>
+    <Profile/>
       {/* <Admin_Dash/> */}
       <Home/>
        <Products/>
@@ -22,7 +23,7 @@ function App() {
       <Login/>
       <Contact/>
      
-      <Profile/>
+      
       <Footer/>
 
     </>
