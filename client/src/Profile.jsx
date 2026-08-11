@@ -1,12 +1,22 @@
 import React , {useState} from "react";
-function Profile(){
+function Profile(props){
     const [isEditing , setIsEditing] = useState(false)
-    const [profile , setProfile] = useState("")
+    const [profile , setProfile] = useState([
+        profileName = props.name,
+         profileImg = props.img
+
+    ])
     // function editProfile(){
     //     setIsEditing = true
     // }
+
     function handleChange(e){
-        names = e.target
+        const {name , value}= e.target
+        setProfile(prev , {
+            ...prev
+            [name] = value
+        })
+
     }
 
     return(
