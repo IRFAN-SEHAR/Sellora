@@ -7,7 +7,7 @@ const[menu , setMenu] = useState(false)
         
               <div className="header">
                 <logo>VELYN</logo>
-                <div className="menu-items"  className={menu } >
+                <div className="menu-items"  className={menu ? "menu-open" : "menu-close" } >
                 <a href="#">home</a>
                 <a href="#">category</a>            
                 <div className="searchBtn">
@@ -21,7 +21,7 @@ const[menu , setMenu] = useState(false)
 <button className="signupBtn">signup</button>
 </div>
 </div>
-<button id="menu"  >☰</button>
+<button id="menu" onClick={()=>menu(!setMenu)}  >☰</button>
                 </div>
     
         
