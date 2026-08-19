@@ -1,13 +1,13 @@
 import React , {useState} from "react";
 
 function Header(){
-const[menu , setMenu] = useState(false)
+const[menuOpen , setMenuOpen] = useState(false)
 
     return(
         
               <div className="header">
                 <logo>VELYN</logo>
-                <div className="menu-items"  className={menu ? "menu-open" : "menu-close" } >
+                <div  className={menuOpen ? "links-open" : "links" } >
                 <a href="#">home</a>
                 <a href="#">category</a>            
                 <div className="searchBtn">
@@ -21,10 +21,8 @@ const[menu , setMenu] = useState(false)
 <button className="signupBtn">signup</button>
 </div>
 </div>
-<button id="menu" onClick={()=>menu(!setMenu)}  >☰</button>
+<button id="menu" onClick={()=>setMenuOpen(!menuOpen)}>☰</button>
                 </div>
-    
-        
     )
 };
 export default Header;
