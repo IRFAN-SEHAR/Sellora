@@ -61,8 +61,8 @@
     height: 350px;
     border: 1px solid black;
      grid-template-rows: 1fr 1fr 1fr 1fr;
-    /* padding: 2%;
-    margin: 2%; */
+    padding: 2%;
+    margin: 2%;
     
 }
 .products .card img{
