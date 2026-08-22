@@ -6,22 +6,24 @@ const[menuOpen , setMenuOpen] = useState(false)
     return(
         
               <div className="header">
+                <div className="nav-items">
                 <logo>VELYN</logo>
-                <div  className={menuOpen ? "links-open" : "links" } >
-                <a href="#">home</a>
-                <a href="#">category</a>            
-                <div className="searchBtn">
+                <ul  className={menuOpen ? "links-open" : "links" } >
+              <li> <a href="#">home</a></li> 
+              <li>  <a href="#">category</a>            </li>   
+                   <li className="searchBtn">
                  <label htmlFor="search">
                   <span class="material-symbols-outlined">search</span>
                   </label>
                     <input  type="text" aria-required/>
-                </div>
-                <div className="login">
+                </li>
+              <li className="login">     
 <button className="loginBtn">login</button>
 <button className="signupBtn">signup</button>
-</div>
-</div>
+</li>
+</ul>
 <button id="menu" onClick={()=>setMenuOpen(!menuOpen)}>☰</button>
+</div>
                 </div>
     )
 };

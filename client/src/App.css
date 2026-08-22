@@ -3,9 +3,7 @@
     padding: 0;
 }
 .header{
-    display: flex;
-    justify-content: center;
-    align-content: center;
+
     width: 100%;
     height: 50px;
       background: linear-gradient(135deg, #fed54f, #fe00e9);
@@ -15,14 +13,28 @@
     
     text-transform: uppercase;
 }
+.nav-items{
+     display: flex;
+    justify-content: center;
+    align-content: center;
+    /* margin-top: 2px; */
+  
+}
 .links{
     display: flex;
     gap: 200px;
+    list-style: none;
+    
+
+}
+.material-symbols-outlined{
+    margin-top: 20px;
 }
 #menu{
     display: none;
     
-}
+} 
+
 /* .header logo{
     width: 40px;
 } */
@@ -64,7 +76,7 @@
     padding: 2%;
     margin: 2%;
     
-/* }
+}
 .products .card img{
     width: 250px;
     height: 250px;
@@ -72,4 +84,4 @@
 
 .search-icon {
   color: hsla(46, 75%, 54%, 0.562);
-} */
+}
