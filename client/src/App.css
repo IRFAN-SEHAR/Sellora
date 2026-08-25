@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    
 }
 .header{
     display: grid;
@@ -26,19 +27,27 @@
     height: 50px;
     display: grid;
     background-color: aquamarine;
-    grid-template-columns: 2fr 3fr 7fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr 5fr 4fr 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 1%;
     margin-top: 20px;
 
      
 }
-.header ul li{
+.header ul li {
     list-style: none;
    
 }
+.header ul li span{
+    padding-left: 20%;
+}
 .header ul li button{
 width: 50px;
+}
+.header ul li input{
+    padding-left: 10%;
+    /* margin-right: 30%; */
+    block-size: 50%;
 }
 .material-symbols-outlined{
     margin-top: 2px;
@@ -49,41 +58,37 @@ width: 50px;
 } 
 
 
-@media (max-width:600px) {
- 
-    #menu{
-        display: block;
 
-    }
-    .links{
-         display: none;
-    }
-    .manu-open{
-         display: flex;
-         flex-direction: row;
-    }
-
-}
 .header p{
     text-transform: capitalize;
     text-decoration: none;
 
 }
 .products{
-    background-color: rgba(113, 143, 110, 9.1);
+    /* background-color: rgba(113, 143, 110, 9.1);
     width: 100%;
     height: auto;
     display: grid;
     align-items: center;
     align-content: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 2%;
+    gap: 2%; */
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E5E5F7;
+opacity: 0.8;
+background-image: radial-gradient(circle, #444CF7 0.8px, transparent 0.8px);
+background-size: 25px 10px;
+
 }
 .card{
-    width: 250px;
-    height: 350px;
+    width: 200px;
+    height: 300px;
     border: 1px solid black;
      grid-template-rows: 1fr 1fr 1fr 1fr;
+     
     padding: 2%;
     margin: 2%;
     
@@ -95,4 +100,27 @@ width: 50px;
 
 .search-icon {
   color: hsla(46, 75%, 54%, 0.562);
+}
+@media (max-width:600px) {
+ 
+    #menu{
+        display: block;
+
+    }
+   .header ul.links{
+         display: none;
+    }
+   .header ul.links-open{
+      display: grid;
+        position: absolute;
+        top: 50px;
+        left: 100%;
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+        grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1%;
+    }
+
 }
