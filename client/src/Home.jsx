@@ -16,7 +16,7 @@ function Home() {
   const [typingDone, setTypingDone] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
 
-  const fullText = "ShopSMARTER";
+  const fullText = "SHOP SMARTER";
 
   // =========================
   // INITIAL TYPING
@@ -56,6 +56,7 @@ function Home() {
   }, [typingDone, words.length]);
 
   return (
+    <div className="home">
     <h1 className="heading">
 
       {!typingDone ? (
@@ -65,7 +66,7 @@ function Home() {
         </>
       ) : (
         <>
-          Shop{" "}
+          SHOP{" "}
 
           <span className="word-box">
 
@@ -92,6 +93,7 @@ function Home() {
       )}
 
     </h1>
+    </div>
   );
 }
 
