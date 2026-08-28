@@ -12,8 +12,9 @@ const[menuOpen , setMenuOpen] = useState(false)
               <li> <a href="#">category</a> </li>   
                    <li className="search-input">
                     <input  type="text" aria-required/>
+                    <label htmlFor="search">search</label>
                 </li>    
-                <li>  <span className="material-symbols-outlined">search</span></li>    
+                {/* <li>  <span className="material-symbols-outlined">search</span></li>     */}
 <li><button className="loginBtn">login</button></li>
 <li><button className="signupBtn">signup</button></li>
 
