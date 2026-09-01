@@ -93,7 +93,7 @@ background-image: radial-gradient(circle, #444CF7 0.8px, transparent 0.8px);
 background-size: 25px 10px;
 
 }
-.card{
+/* .card{
     width: 200px;
     height: 300px;
     border: 1px solid black;
@@ -102,7 +102,7 @@ background-size: 25px 10px;
     padding: 2%;
     margin: 2%;
     
-}
+} */
 .products .card img{
     width: 250px;
     height: 250px;
