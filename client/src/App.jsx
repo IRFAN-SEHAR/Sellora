@@ -17,14 +17,14 @@ function App() {
     <Header/>
     {/* <Profile/> */}
       {/* <Admin_Dash/> */}
-      <Home/>
+      {/* <Home/>
        <Products/>
       <Cart/>
       <Login/>
       <Contact/>
      
       
-      <Footer/>
+      <Footer/> */}
 
     </>
   )
