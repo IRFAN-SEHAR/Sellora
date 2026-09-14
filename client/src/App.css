@@ -150,14 +150,14 @@ background-size: 25px 10px;
     opacity: 0;
   }
 }
-.word-box {
+/* .word-box {
   height: 1.2em;
   overflow: hidden;
 
   display: inline-block;
 
   vertical-align: bottom;
-}
+} */
 .word-track {
   display: flex;
   flex-direction: column;
