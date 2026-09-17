@@ -29,7 +29,7 @@
     height: 50px;
     display: grid;
     /* background-color: aquamarine; */
-    grid-template-columns: 1fr 1fr 5fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 5fr 0.5fr 0.5fr 0.5fr;
     grid-template-rows: 1fr;
     gap: 1%;
     margin-top: 10px;
@@ -55,9 +55,13 @@
 width: 50px;
 }
 .header ul li input{
-    padding-left: 10%;
-    /* margin-right: 30%; */
-    block-size: 50%;
+    margin-right: 3%;
+    margin-left: 10%;
+    border: none;
+    width: 40%;
+    
+
+    
 }
 .material-symbols-outlined{
     margin-top: 2px;
@@ -150,14 +154,14 @@ background-size: 25px 10px;
     opacity: 0;
   }
 }
-/* .word-box {
+.word-box {
   height: 1.2em;
   overflow: hidden;
 
   display: inline-block;
 
   vertical-align: bottom;
-} */
+}
 .word-track {
   display: flex;
   flex-direction: column;
