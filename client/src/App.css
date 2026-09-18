@@ -181,3 +181,259 @@ background-size: 25px 10px;
 
   white-space: nowrap;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* search icon */
+/* ===================================================
+   SearchBar — modern, high-contrast, smooth animations
+   Drop this file next to SearchBar.jsx
+=================================================== */
+
+:root {
+  --sb-bg: #ffffff;
+  --sb-bg-focus: #ffffff;
+  --sb-border: #e2e4e9;
+  --sb-text: #14161a;
+  --sb-placeholder: #9aa0ac;
+  --sb-icon: #6b7280;
+  --sb-icon-focus: #ffffff;
+  --sb-accent-1: #6d28d9; /* violet */
+  --sb-accent-2: #db2777; /* pink   */
+  --sb-shadow: rgba(109, 40, 217, 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sb-bg: #16171c;
+    --sb-bg-focus: #1c1d24;
+    --sb-border: #2a2c34;
+    --sb-text: #f3f4f6;
+    --sb-placeholder: #6b7280;
+    --sb-icon: #9aa0ac;
+    --sb-shadow: rgba(219, 39, 119, 0.3);
+  }
+}
+
+/* the <li> that wraps the search bar inside your nav/header list */
+.sb-list-item {
+  list-style: none;   /* removes the bullet point */
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.sb-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  height: 52px;
+  padding: 0 8px 0 4px;
+  background: var(--sb-bg);
+  border: 1.5px solid var(--sb-border);
+  border-radius: 999px;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    border-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* subtle lift + border pop on hover, before focus */
+.sb-wrapper:hover {
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -6px var(--sb-shadow);
+}
+
+/* animated gradient ring — sits behind the bar, revealed via padding-box trick */
+.sb-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(
+    120deg,
+    var(--sb-accent-1),
+    var(--sb-accent-2),
+    var(--sb-accent-1)
+  );
+  background-size: 200% 200%;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.sb-wrapper:hover::before {
+  opacity: 1;
+  animation: sb-gradient-flow 3s ease infinite;
+}
+
+.sb-focused {
+  background: var(--sb-bg-focus);
+  box-shadow: 0 10px 30px -8px var(--sb-shadow);
+  transform: translateY(-1px) scale(1.01);
+}
+
+.sb-focused::before {
+  opacity: 1;
+  animation: sb-gradient-flow 3s ease infinite;
+}
+
+@keyframes sb-gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* soft ambient glow that blooms on focus */
+.sb-glow {
+  position: absolute;
+  inset: -40%;
+  z-index: -2;
+  background: radial-gradient(
+    circle at 30% 50%,
+    var(--sb-accent-1) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  filter: blur(20px);
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.sb-focused .sb-glow {
+  opacity: 0.18;
+}
+
+/* icon button */
+.sb-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  color: var(--sb-icon);
+  transition:
+    background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sb-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* icon gets a filled gradient chip once the field is focused */
+.sb-focused .sb-icon-btn {
+  background: linear-gradient(135deg, var(--sb-accent-1), var(--sb-accent-2));
+  color: var(--sb-icon-focus);
+  transform: scale(1.05);
+}
+
+.sb-wrapper:hover .sb-icon {
+  transform: scale(1.1) rotate(-8deg);
+}
+
+.sb-focused .sb-icon {
+  transform: scale(1);
+}
+
+.sb-icon-btn:active .sb-icon {
+  transform: scale(0.85) rotate(0deg);
+}
+
+/* text input */
+.sb-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--sb-text);
+  caret-color: var(--sb-accent-2);
+  padding: 0 4px;
+}
+
+.sb-input::placeholder {
+  color: var(--sb-placeholder);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sb-focused .sb-input::placeholder {
+  opacity: 0.6;
+  transform: translateX(2px);
+}
+
+/* clear (x) button */
+.sb-clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--sb-border);
+  color: var(--sb-text);
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.6) rotate(-90deg);
+  animation: sb-pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.sb-clear-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+.sb-clear-btn:hover {
+  background: var(--sb-accent-2);
+  color: #fff;
+  transform: scale(1.1) rotate(90deg);
+}
+
+@keyframes sb-pop-in {
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* responsive */
+@media (max-width: 480px) {
+  .sb-wrapper {
+    max-width: 100%;
+    height: 46px;
+  }
+}

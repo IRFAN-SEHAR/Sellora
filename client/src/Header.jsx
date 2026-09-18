@@ -1,7 +1,22 @@
-import React , {useState} from "react";
+import React , {useState ,  useRef} from "react";
 
 function Header(){
 const[menuOpen , setMenuOpen] = useState(false)
+const [searchValue, setSearchValue] = useState("");
+const [searchFocused, setSearchFocused] = useState(false);
+const searchInputRef = useRef(null);
+
+const handleSearchSubmit = (e) => {
+  e.preventDefault();
+  console.log("search:", searchValue.trim());
+  // call your actual search function here
+};
+
+const handleSearchClear = () => {
+  setSearchValue("");
+  searchInputRef.current?.focus();
+};
+
 
     return(
         
@@ -21,10 +36,43 @@ const[menuOpen , setMenuOpen] = useState(false)
 	<path d="M4 14h6v6h-6v-6" />
 	<path d="M14 17h6m-3 -3v6" />
 </svg></a> </li>   
-                   <li className="search-input">
-                    <input  type="text" aria-required/>
-                    <label htmlFor="search">searchc</label>
-                </li>    
+                 <li className="sb-list-item">
+  <form
+    className={`sb-wrapper ${searchFocused ? "sb-focused" : ""}`}
+    onSubmit={handleSearchSubmit}
+    role="search"
+  >
+    <button type="submit" className="sb-icon-btn" aria-label="Search" tabIndex={-1}>
+      <svg className="sb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
+        <line x1="16.65" y1="16.65" x2="21" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    </button>
+
+    <input
+      ref={searchInputRef}
+      type="text"
+      className="sb-input"
+      placeholder="Search products..."
+      value={searchValue}
+      onChange={(e) => setSearchValue(e.target.value)}
+      onFocus={() => setSearchFocused(true)}
+      onBlur={() => setSearchFocused(false)}
+      aria-label="Search products"
+    />
+
+    {searchValue && (
+      <button type="button" className="sb-clear-btn" aria-label="Clear search" onClick={handleSearchClear}>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </button>
+    )}
+
+    <span className="sb-glow" aria-hidden="true" />
+  </form>
+</li>    
                 {/* <li>  <span className="material-symbols-outlined">search</span></li>     */}
 <li><button className="loginBtn">login</button></li>
 <li><button className="signupBtn">signup</button></li>
