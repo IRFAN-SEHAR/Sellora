@@ -17,15 +17,13 @@ function Home() {
   const [wordIndex, setWordIndex] = useState(0);
 
   const fullText = "SHOPSMARTER";
-  const prefix = "SHOP"; // the part that stays plain
+  const prefix = "SHOP"; 
 
-  // =========================
-  // INITIAL TYPING
-  // =========================
+
 
   useEffect(() => {
     let i = 0;
-
+const startDelay = setTimeout(() => {
     const timer = setInterval(() => {
       setText(fullText.slice(0, i + 1));
       i++;
@@ -35,17 +33,14 @@ function Home() {
 
         setTimeout(() => {
           setTypingDone(true);
-        }, 2000);
+        }, 1000);
       }
-    }, 50);
-
-    return () => clearInterval(timer);
+    }, 60);
+}, 1000);
+    return () =>
+      clearTimeout(startDelay);
+       clearInterval(timer);
   }, []);
-
-  // =========================
-  // CHANGE WORD
-  // =========================
-
   useEffect(() => {
     if (!typingDone) return;
 
@@ -53,12 +48,14 @@ function Home() {
       setWordIndex((prev) => (prev + 1) % words.length);
     }, 2000);
 
-    return () => clearInterval(timer);
+ 
+    return () =>
+
+      
+       clearInterval(timer);
   }, [typingDone, words.length]);
 
-  // Split the currently-typed text into the plain prefix
-  // and the highlighted rest, so "SMARTER" is colored
-  // as soon as its letters appear — not after the fact.
+ 
   const typedPrefix = text.slice(0, prefix.length);
   const typedRest = text.slice(prefix.length);
 
