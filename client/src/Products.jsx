@@ -2,6 +2,7 @@ import React , {useState} from "react";
 function Products(){
     return(
         <div className="products">
+          
             <div className="card">
                 <div className="title">the title</div>
                 <img src="src/assets/hp-cc-registerbeats.png" alt="" />

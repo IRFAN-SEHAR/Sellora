@@ -87,14 +87,16 @@ width: 50px;
     align-content: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2%; */
+
+background-color: white;
     display:  flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #E5E5F7;
+    /* background-color: #E5E5F7;
 opacity: 0.8;
 background-image: radial-gradient(circle, #444CF7 0.8px, transparent 0.8px);
-background-size: 25px 10px;
+background-size: 25px 10px; */
 
 }
 .card{
