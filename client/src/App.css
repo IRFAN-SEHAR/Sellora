@@ -117,7 +117,7 @@ width: 50px;
 }
 
 }
-@media (max-width:1120px) {
+@media (min-width:1120px) {
   .products{
   width: 100%;
     grid-template-columns: 1fr 1fr;
