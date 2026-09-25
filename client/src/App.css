@@ -107,17 +107,8 @@ width: 50px;
 }
 
 
-@media  (max-width:768px)and( min-width:1119px) {
-  .products{
-  width: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    padding-left: 25%;      
-    /* gap: 2%; */
-}
 
-}
-@media (min-width:1120px) {
+@media (max-width:1120px) {
   .products{
   width: 100%;
     grid-template-columns: 1fr 1fr;
@@ -125,6 +116,7 @@ width: 50px;
     margin-left: 0%;
     /* gap: 2%; */
 }
+
 .card{
     width: 200px;
     height: 300px;
@@ -134,6 +126,16 @@ width: 50px;
     margin-top: 20%;
     margin-left: 25%;
 }
+}
+@media  (max-width:768px){
+  .products{
+  width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    padding-left: 25%;      
+    /* gap: 2%; */
+}
+
 }
 
 /* home css */
