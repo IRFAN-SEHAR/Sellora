@@ -79,7 +79,7 @@ width: 50px;
 
 }
 .products{
-    background-color: rgba(113, 143, 110, 9.1);
+    background-color: rgba(219, 39, 119, 0.45);
     width: 100%;
     height: auto;
     display: grid;
@@ -91,6 +91,7 @@ width: 50px;
 .card{
     width: 200px;
     height: 300px;
+    background-color: #40434e;
     border: 1px solid black;
      grid-template-rows: 1fr 1fr 1fr 1fr;
     padding: 2%;
