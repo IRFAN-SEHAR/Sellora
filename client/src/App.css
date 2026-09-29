@@ -96,7 +96,6 @@ background-color: rgba(219, 39, 119, 0.45);
     background-color: #40434e;
     border: 1px solid black;
      grid-template-rows: 1fr 1fr 1fr 1fr;
-    
     padding: 0%;
     margin: 2%;
 }
@@ -137,8 +136,17 @@ background-color: rgba(219, 39, 119, 0.45);
   width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    padding-left: 25%;      
+    padding-left: 0%;      
     /* gap: 2%; */
+}
+.card{
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+     grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding: 2%;
+    margin-top: 20%;
+    margin-left: 24%;
 }
 
 }
