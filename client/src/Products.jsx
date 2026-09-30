@@ -48,7 +48,9 @@ function Products(){
                 <img src="src/assets/hp-cc-registerbeats.png" alt="product-image" />
                 <input type="button" value="add to cart" className="card-btn" />
             </div>
+            
 </div>
+
         </div>
     )
 };
