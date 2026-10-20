@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
   font-family: "Bebas Neue", sans-serif;
@@ -15,11 +15,11 @@
    grid-template-rows: 1fr;
    text-transform: uppercase;
    gap: 3%;
-}
-/* .logo{
+} */
+.logo{
     margin-top: 6px;
     margin-left: 2%;
-} */
+}
 .header ul{
     /* display: flex;
     
