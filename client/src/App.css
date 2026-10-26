@@ -457,22 +457,136 @@ width: 50px;
 }
 .products * {
   font-family: "Inter", sans-serif;
+  
 }
-.card{
- 
+/* ---------- Card: your original styles, kept and extended ---------- */
+.card {
+  --card-accent: #f20ad3;        /* change this one value to re-theme the glow */
+  --card-radius: 14px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-    width: 300px;
-    /* height: 300px; */
-     
-   background-color: #40434e;
-    border: 1px solid black; 
-       display: grid;
-     grid-template-rows: 7fr  1fr ;
-    padding: 0%;
-    margin: 2%;
-    margin-top: 50%;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  width: min(250px, 90%);        /* flexible: shrinks on small screens */
+  display: grid;
+  grid-template-rows: 7fr 1fr;
+  padding: 0;
+  margin: 2%;
+  margin-top: 20%;
+
+  background-color: rgb(243, 245, 246);
+  color: rgb(31, 31, 31);
+  border: 1px solid rgba(0, 0, 0, 0.85);
+  border-radius: var(--card-radius);
+  box-shadow: 0 1px 33px rgba(0, 0, 0, 0.36);
+
+  /* one entrance, plays once on load */
+  animation: card-enter 1600ms var(--ease) both;
+
+  transition:
+    transform 450ms var(--ease),
+    box-shadow 450ms var(--ease),
+    border-color 450ms var(--ease);
 }
 
+/* light sweep that travels across the card on hover */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.75) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+}
+
+/* soft accent glow that fades in underneath */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 120%,
+    color-mix(in srgb, var(--card-accent) 28%, transparent),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 450ms var(--ease);
+}
+
+/* ---------- Interaction (answers the user's action) ---------- */
+.card:hover,
+.card:focus-within {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--card-accent);
+  box-shadow:
+    0 22px 40px -18px color-mix(in srgb, var(--card-accent) 55%, transparent),
+    0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover::before,
+.card:focus-within::before {
+  transform: translateX(120%);
+  transition: transform 900ms var(--ease);
+}
+
+.card:hover::after,
+.card:focus-within::after {
+  opacity: 1;
+}
+
+.card:active {
+  transform: translateY(-4px) scale(0.99);
+  transition-duration: 120ms;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* ---------- Accessibility: respect reduced-motion setting ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card::before,
+  .card::after {
+    animation: none;
+    transition-duration: 0.01ms;
+  }
+  .card:hover,
+  .card:focus-within {
+    transform: none;
+  }
+}
+
+/* ---------- Optional: stagger when you have several cards ---------- */
+.card:nth-child(2) { animation-delay: 90ms; }
+.card:nth-child(3) { animation-delay: 180ms; }
+.card:nth-child(4) { animation-delay: 270ms; }
+.card *{
+  
+   margin: 3px;
+
+
+}
 
 .products .card img{    
   
@@ -481,40 +595,53 @@ width: 50px;
      grid-column: 1 / -1;   /* picture takes the whole row */
     width: 100%;
     height: 100%;
+    margin: 0px;
     object-fit: cover;   
-    background-color: #ffffff;
-  background-image: radial-gradient(
+    
+     background-image: radial-gradient(
     circle closest-side at center,
     rgba(242, 7, 211, 0.5) 0%,
     rgba(242, 7, 211, 0.34) 25%,
     rgba(242, 7, 211, 0.18) 50%,
     rgba(242, 7, 211, 0.06) 75%,
     rgba(242, 7, 211, 0) 100%
-  );
+  ); 
+
+
+  background-color: rgba(20, 20, 20, 0.187);
 }
+
 .card .wrapper{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 0.2fr;
+  
+  
+  
+  
 }
 .products .card .discription{
-  
+  margin-bottom: 3px;
+margin-top: 0%;
       --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity));
 }
+
 @media (max-width:1120px) {
   .products{
   width: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    display: grid;
+    grid-template-columns:  repeat(2, 1fr);
     margin-left: 0%;
     /* gap: 2%; */
 }
 
 .card{
-    width: 200px;
-    height: 300px;
-    border: 1px solid black;
-     grid-template-rows: 1fr 1fr 1fr 1fr;
+   width: min(250px, 90%);        /* flexible: shrinks on small screens */
+  display: grid;
+  grid-template-rows: 7fr 1fr;
+  padding: 0;
+  margin: 2%;
+  margin-top: 20%;
     padding: 2%;
     margin-top: 20%;
     margin-left: 25%;
@@ -530,13 +657,15 @@ width: 50px;
     
 } 
 .card{
-    width: 200px;
-    height: 300px;
-    border: 1px solid black;
-     grid-template-rows: 1fr 1fr 1fr 1fr;
+   width: min(250px, 90%);        /* flexible: shrinks on small screens */
+  display: grid;
+  grid-template-rows: 7fr 1fr;
+  padding: 0;
+  margin: 2%;
+  margin-top: 20%;
     padding: 2%;
     margin-top: 20%;
-    margin-left: 24%;
+    margin-left: 22%;
 }
 
 }
