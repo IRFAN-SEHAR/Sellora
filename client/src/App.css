@@ -660,7 +660,7 @@ margin-top: 0%;
     /* gap: 2%; */
     
 } 
-.card{
+/* .card{
    width: min(250px, 90%);        /* flexible: shrinks on small screens */
   display: grid;
   grid-template-rows: 7fr 1fr;
@@ -672,4 +672,4 @@ margin-top: 0%;
     margin-left: 16%;
 }
 
-}
+} */
