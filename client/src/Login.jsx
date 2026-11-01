@@ -1,7 +1,11 @@
 import React , {useState} from "react";
 function Login(){
     return(
-        <div>this is login</div>
+        <div>
+            <form action="">
+                
+            </form>
+        </div>
     )
 };
 export default Login;

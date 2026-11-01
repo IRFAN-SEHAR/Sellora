@@ -21,8 +21,8 @@ function App() {
        <Products/>
       <Cart/>
       <Login/>
-      <Contact/>
-      <Footer/>
+      {/* <Contact/>
+      <Footer/> */}
     </>
   )
 }
