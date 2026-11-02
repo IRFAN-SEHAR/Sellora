@@ -630,6 +630,99 @@ margin-top: 0%;
     color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* login css */
+
+.auth-form{
+  display: flex;
+  width: 100%;
+  height: 800px;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  
+}
+form{
+  display: grid;
+    border: #b63838 1px solid;
+    border-radius: 10%;
+    padding: 10%;
+   height: 40%;
+  grid-template-columns: 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+ justify-items: center;
+ align-items: center;
+
+
+}
+.auth-input{
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+.auth-input input{
+  min-width: 80px;
+}
+.auth-input input{
+  flex: 1;
+}
+form .other-login{
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  */
+
+max-width: fit-content;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+  backdrop-filter: blur(15px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
+    inset 0 0 5px rgba(255, 255, 255, 0.274), 0 5px 5px rgba(0, 0, 0, 0.164);
+  transition: 0.5s;
+
+
+ display: flex;
+ align-items: center;
+justify-content: space-evenly;
+width: 100%;
+
+
+
+}
+
+.other-login:hover{
+   animation: ease-out 5s;
+  background: rgba(173, 173, 173, 0.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 1120px) {
   .products {
     width: 100%;

@@ -19,7 +19,7 @@ function App() {
      <Admin_Dash/>  */}
       <Home/>
        <Products/>
-      <Cart/>
+      {/* <Cart/> */}
       <Login/>
       {/* <Contact/>
       <Footer/> */}
