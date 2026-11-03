@@ -2,7 +2,7 @@ import React , {useState} from "react";
 function Login(){
     return(
         <div className="auth-form">
-            <form htmlFor="form-auth">
+            {/* <form htmlFor="form-auth">
                 <div>login</div>
                 <div className="auth-input">
                 <label htmlFor="email">email</label>
@@ -20,7 +20,7 @@ function Login(){
   <div className="tiktok"><i className="fa-brands fa-tiktok"></i></div>
                </div>
               
-            </form>
+            </form> */}
         </div>
     )
 };
