@@ -1,87 +1,141 @@
-import React , {useState ,  useRef} from "react";
-
-function Header(){
-const[menuOpen , setMenuOpen] = useState(false)
-const [searchValue, setSearchValue] = useState("");
-const [searchFocused, setSearchFocused] = useState(false);
-const searchInputRef = useRef(null);
-
-const handleSearchSubmit = (e) => {
-  e.preventDefault();
-  console.log("search:", searchValue.trim());
-  // call your actual search function here
-};
-
-const handleSearchClear = () => {
-  setSearchValue("");
-  searchInputRef.current?.focus();
-};
+import React from "react";
 
 
-    return(
-        
-              <div className="header">
-                <h1 className="logo" >VELYN</h1>
-                <ul  className={menuOpen ? "links-open" : "links" } >
-              <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home">
-	<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-	<path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-	<path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-	<path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-</svg></a></li> 
-              <li> <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-category-plus">
-	<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-	<path d="M4 4h6v6h-6v-6" />
-	<path d="M14 4h6v6h-6v-6" />
-	<path d="M4 14h6v6h-6v-6" />
-	<path d="M14 17h6m-3 -3v6" />
-</svg></a> </li>   
-                 <li className="sb-list-item">
-  <form
-    className={`sb-wrapper ${searchFocused ? "sb-focused" : ""}`}
-    onSubmit={handleSearchSubmit}
-    role="search"
+/* ---------- Icons (24px grid, currentColor, round caps) ---------- */
+const Icon = ({ children }) => (
+  <svg
+    className="icon"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
   >
-    <button type="submit" className="sb-icon-btn" aria-label="Search" tabIndex={-1}>
-      <svg className="sb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
-        <line x1="16.65" y1="16.65" x2="21" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    </button>
+    {children}
+  </svg>
+);
 
-    <input
-      ref={searchInputRef}
-      type="text"
-      className="sb-input"
-      placeholder="Search products..."
-      value={searchValue}
-      onChange={(e) => setSearchValue(e.target.value)}
-      onFocus={() => setSearchFocused(true)}
-      onBlur={() => setSearchFocused(false)}
-      aria-label="Search products"
-    />
+const HomeIcon = () => (
+  <Icon>
+    <path d="M4 11.5 12 4l8 7.5" />
+    <path d="M6 10v9a1 1 0 0 0 1 1h3.5v-5h3v5H17a1 1 0 0 0 1-1v-9" />
+  </Icon>
+);
 
-    {searchValue && (
-      <button type="button" className="sb-clear-btn" aria-label="Clear search" onClick={handleSearchClear}>
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      </button>
-    )}
+const CategoriesIcon = () => (
+  <Icon>
+    <rect x="4" y="4" width="6.5" height="6.5" rx="1.8" />
+    <rect x="13.5" y="4" width="6.5" height="6.5" rx="1.8" />
+    <rect x="4" y="13.5" width="6.5" height="6.5" rx="1.8" />
+    <path d="M16.75 13.5v6.5M13.5 16.75H20" />
+  </Icon>
+);
 
-    <span className="sb-glow" aria-hidden="true" />
-  </form>
-</li>    
-                {/* <li>  <span className="material-symbols-outlined">search</span></li>     */}
-                <li className="cart"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart preview-icon"><path d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18"/><path d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg></li>
-<li><button class="button button--pan"><span>login</span></button></li>
+const SearchIcon = () => (
+  <Icon>
+    <circle cx="11" cy="11" r="6.5" />
+    <path d="m16 16 4 4" />
+  </Icon>
+);
 
+const ContactIcon = () => (
+  <Icon>
+    <path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4.5 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" />
+    <path d="M8 10h8M8 13h5" />
+  </Icon>
+);
 
-</ul>
-<button id="menu" onClick={()=>setMenuOpen(!menuOpen)}>☰</button>
+const CartIcon = () => (
+  <Icon>
+    <path d="M3 4h2.2l2 11h10.2l1.8-7.5H6.2" />
+    <circle cx="9" cy="19.5" r="1.4" />
+    <circle cx="17" cy="19.5" r="1.4" />
+  </Icon>
+);
 
-                </div>
-    )
-};
+const UserIcon = () => (
+  <Icon>
+    <circle cx="12" cy="8.5" r="3.8" />
+    <path d="M4.5 20a7.5 7.5 0 0 1 15 0" />
+  </Icon>
+);
+
+/* ---------- Logo: the Y is a little cheering figure ---------- */
+const AnimatedY = () => (
+  <svg className="logo-y" viewBox="0 0 24 32" aria-hidden="true">
+    <defs>
+      <linearGradient id="velynY" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#6d4aff" />
+        <stop offset="1" stopColor="#ff5c7a" />
+      </linearGradient>
+    </defs>
+
+    {/* arms: drawn in on load, then wave */}
+    <path className="y-arm y-arm-l" pathLength="1" d="M4 10 L12 19" />
+    <path className="y-arm y-arm-r" pathLength="1" d="M20 10 L12 19" />
+    {/* body */}
+    <path className="y-stem" pathLength="1" d="M12 19 V30" />
+    {/* head */}
+    <circle className="y-head" cx="12" cy="4.5" r="2.6" />
+  </svg>
+);
+
+const Logo = () => (
+  <a href="#" className="logo" aria-label="VELYN home">
+    <span className="logo-letter">V</span>
+    <span className="logo-letter">E</span>
+    <span className="logo-letter">L</span>
+    <AnimatedY />
+    <span className="logo-letter">N</span>
+  </a>
+);
+
+/* ---------- Header ---------- */
+function Header({ onSearchClick, onContactClick, onCartClick, onLoginClick }) {
+  return (
+    <header className="header">
+      <Logo />
+
+      <nav className="nav" aria-label="Main">
+        <ul className="nav-list">
+          <li>
+            <a href="#" className="nav-btn" aria-label="Home" title="Home">
+              <HomeIcon />
+            </a>
+          </li>
+          <li>
+            <a href="#" className="nav-btn" aria-label="Categories" title="Categories">
+              <CategoriesIcon />
+            </a>
+          </li>
+          <li>
+            <button type="button" className="nav-btn" aria-label="Search" title="Search" onClick={onSearchClick}>
+              <SearchIcon />
+            </button>
+          </li>
+          <li>
+            <button type="button" className="nav-btn" aria-label="Contact us" title="Contact us" onClick={onContactClick}>
+              <ContactIcon />
+            </button>
+          </li>
+          <li>
+            <button type="button" className="nav-btn" aria-label="Cart" title="Cart" onClick={onCartClick}>
+              <CartIcon />
+            </button>
+          </li>
+         
+        </ul>
+      </nav>
+         <div className="header-actions">
+        <button type="button" className="nav-btn login-btn" aria-label="Log in" title="Log in" onClick={onLoginClick}>
+          <UserIcon />
+          <span className="login-text">Log in</span>
+        </button>
+      </div>
+    </header>
+  );
+}
+
 export default Header;
