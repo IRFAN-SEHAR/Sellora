@@ -404,13 +404,13 @@ grid-template-columns: 1fr auto 1fr;
    .product-container{
 
 /* background-color: rgba(219, 39, 119, 0.45); */
-  background: #141414c9;
-   background-image: radial-gradient(circle at center, #fbb6ce, transparent); 
-             background: rgb(0, 0, 0);
-    background-image: linear-gradient(to right, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+  /* background: #141414c9; */
+   background-image: radial-gradient(circle at center, #fefdfe, transparent); 
+             /* background: rgb(0, 0, 0); */
+    /* background-image: linear-gradient(to right, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
      linear-gradient(to bottom, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
    radial-gradient(circle at 50% 50%, rgb(5, 5, 5) 0%, rgba(0, 0, 0, 0.97) 40%, transparent 80%);
-    background-size: 32px 32px, 32px 32px, 100% 100%;
+    background-size: 32px 32px, 32px 32px, 100% 100%; */
   /* background-size: 290px 190px; */
     width: 100%;
     height: auto;
@@ -618,6 +618,7 @@ margin-top: 0%;
   --coral: #ff5c7a;
   --glass: rgba(255, 255, 255, 0.55);
   --glass-edge: rgba(255, 255, 255, 0.7);
+  
 }
 
 /* =========================================================
@@ -637,7 +638,8 @@ margin-top: 0%;
   overflow: hidden;
   font-family: "Unbounded", "Trebuchet MS", system-ui, sans-serif;
   color: var(--ink);
-  animation: stage-in 0.9s ease both; /* on load */
+  animation: stage-in 0.5s ease both; /* on load */
+   background-color: #000;
 }
 
 /* soft floating colour blobs behind the glass */
@@ -657,13 +659,13 @@ margin-top: 0%;
   background: var(--violet);
   top: 12%;
   left: 14%;
-  animation: blob-a 9s ease-in-out infinite alternate;
+  animation: blob-a 5s ease-in-out infinite alternate;
 }
 .auth-form::after {
   background: var(--coral);
   bottom: 10%;
   right: 14%;
-  animation: blob-b 11s ease-in-out infinite alternate;
+  animation: blob-b 5s ease-in-out infinite alternate;
 }
 
 @keyframes stage-in {
@@ -718,6 +720,7 @@ margin-top: 0%;
   -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
   opacity: 0;
+  
   transition: opacity 0.35s ease;
   pointer-events: none;
 }
@@ -866,6 +869,7 @@ margin-top: 0%;
 .auth-form input:hover {
   background: rgba(255, 255, 255, 0.85);
   border-color: rgba(109, 74, 255, 0.35);
+  
 }
 .auth-form input:focus {
   background: #fff;
@@ -884,6 +888,7 @@ margin-top: 0%;
   color: #fff;
   background: linear-gradient(135deg, var(--violet), var(--coral));
   box-shadow: 0 6px 16px rgba(109, 74, 255, 0.35);
+ 
   font: inherit;
   font-weight: 600;
   font-size: 15px;
