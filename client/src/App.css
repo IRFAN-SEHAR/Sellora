@@ -1063,6 +1063,34 @@ margin-top: 0%;
   transform: translate(10px, -10px);
 }
 
+
+
+
+
+
+
+.contact-us{
+  display: flex;
+  padding: 4%;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: 1fr; */
+  align-content: center;
+  justify-content: center;
+  gap: 10%;
+  height: fit-content;
+ background: darkgrey;
+}
+.contact-us .contacts{
+  display: grid;
+  gap: 10%;
+}
+
+
+
+
+
+
+
 @media (max-width: 1120px) {
   .products {
     width: 100%;
