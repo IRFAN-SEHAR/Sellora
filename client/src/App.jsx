@@ -22,7 +22,7 @@ function App() {
       {/* <Cart/> */}
       <Login/>
       <Contact/>
-      {/* <Footer/> */}
+      <Footer/>
     </>
   )
 }

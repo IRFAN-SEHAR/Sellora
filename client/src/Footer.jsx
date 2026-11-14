@@ -1,7 +1,8 @@
 import React , {useState} from "react";
 function Footer(){
+    const date = new Date().getFullYear();
     return(
-        <div>this is footer</div>
+        <div className="footer">All Rights Reserved By Sellora @{date}</div>
     )
 };
 export default Footer;
