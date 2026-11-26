@@ -1,16 +1,16 @@
-import React , {useState} from "react";
-import { useEffect } from "react";
-function Contact(){
-   useEffect(() => {
-    const elements = document.querySelectorAll(".contact-us li");
+// import React , {useState} from "react";
+// import { useEffect } from "react";
+// function Contact(){
+//    useEffect(() => {
+//     const elements = document.querySelectorAll(".contact-us li");
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                    observer.unobserve(entry.target);
-                }
+//     const observer = new IntersectionObserver(
+//         (entries) => {
+//             entries.forEach((entry) => {
+//                 if (entry.isIntersecting) {
+//                     entry.target.classList.add("show");
+//                     observer.unobserve(entry.target);
+//                 }
             });
         },
         {
