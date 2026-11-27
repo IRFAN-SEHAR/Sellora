@@ -1,21 +1,21 @@
-import React from "react";
+// import React from "react";
 
 
-/* ---------- Icons (24px grid, currentColor, round caps) ---------- */
-const Icon = ({ children }) => (
-  <svg
-    className="icon"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    {children}
-  </svg>
-);
+// /* ---------- Icons (24px grid, currentColor, round caps) ---------- */
+// const Icon = ({ children }) => (
+//   <svg
+//     className="icon"
+//     viewBox="0 0 24 24"
+//     fill="none"
+//     stroke="currentColor"
+//     strokeWidth="1.8"
+//     strokeLinecap="round"
+//     strokeLinejoin="round"
+//     aria-hidden="true"
+//   >
+//     {children}
+//   </svg>
+// );
 
 const HomeIcon = () => (
   <Icon>
